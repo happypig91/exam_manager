@@ -1,0 +1,95 @@
+.user_slot {
+    height: 64px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0 10px;
+}
+
+.user_avatar {
+    font-size: 14px;
+    font-variant: tabular-nums;
+    line-height: 1.5;
+    color: rgba(0, 0, 0, 0.65);
+    box-sizing: border-box;
+    margin: 0 13px 0 0;
+    padding: 0;
+    list-style: none;
+    display: inline-block;
+    text-align: center;
+    background: #ccc;
+    color: #fff;
+    white-space: nowrap;
+    position: relative;
+    overflow: hidden;
+    vertical-align: middle;
+    width: 32px;
+    height: 32px;
+    line-height: 32px;
+    border-radius: 50%;
+}
+
+.user_string {
+    position: absolute;
+    left: 50%;
+    transform-origin: 0 center;
+}
+
+.row {
+    position: relative;
+    margin-left: 0;
+    margin-right: 0;
+    height: auto;
+    zoom: 1;
+    display: block;
+    display: flex;
+    box-sizing: border-box;
+}
+
+.row1 {
+    display: block;
+    box-sizing: border-box;
+    width: 8.33333333%;
+    text-align: center;
+    line-height: 40px;
+}
+
+.row2 {
+    display: block;
+    box-sizing: border-box;
+    width: 91.66666667%;
+}
+
+.tag {
+    font-size: 14px;
+    font-variant: tabular-nums;
+    line-height: 1.5;
+    color: rgba(0, 0, 0, 0.65);
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    display: inline-block;
+    line-height: 20px;
+    height: 22px;
+    padding: 0 7px;
+    border-radius: 2px;
+    border: 1px solid #d9d9d9;
+    background: #fafafa;
+    font-size: 12px;
+    transition: all 0.3s cubic-bezier(0.215, 0.61, 0.355, 1);
+    opacity: 1;
+    margin-right: 8px;
+    cursor: pointer;
+    white-space: nowrap;
+}
+
+.control {
+    line-height: 39.9999px;
+    position: relative;
+    zoom: 1;
+}
+
+.child {
+    position: relative;
+}

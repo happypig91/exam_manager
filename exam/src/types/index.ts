@@ -1,4 +1,6 @@
 export interface LoginForm {
+    autoLogin: any;
+    remember: any;
     user_name: string
     user_pwd: string
 }
