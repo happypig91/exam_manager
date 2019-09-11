@@ -1,0 +1,33 @@
+.adduser-title{
+    padding: 10px 0px;
+    font-size: 24px;
+}
+
+.adduser-content{
+    display: flex;
+    flex-wrap: wrap;
+    border-top:1px solid #ccc;
+    border-left:1px solid #ccc;
+}
+.adduser-wrapper{
+    width: 33.3%;
+    border-right: 1px solid #ccc;
+    border-bottom: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 10px;
+    cursor: pointer;
+}
+
+.adduser-input{
+    margin-bottom: 20px
+}
+
+.btn-active{
+    padding: 0 40px!important;
+    border-radius: 4px!important;
+    border: 0!important;
+    font-size: 14px!important;
+    color: #fff!important;
+    margin-right: 10px;
+    background: linear-gradient(-90deg,#4e75ff,#0139fd)!important;
+}

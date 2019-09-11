@@ -1,17 +1,27 @@
 {
-    "extends": ["tslint:recommended", "tslint-react", "tslint-config-prettier"],
-    "linterOptions": {
-        "exclude": [
-            "config/**/*.js",
-            "node_modules/**/*.ts",
-            "coverage/lcov-report/*.js"
-        ]
-    },
-    "rules": {
-        "no-console": [false],
-        "ordered-imports": false,
-        "interface-name": [true, "never-prefix"],
-        "jsx-wrap-multiline": false,
-        "jsx-no-lambda": false
-    }
+  "defaultSeverity": "warning",
+  "extends": ["tslint:recommended", "tslint-react", "tslint-config-prettier"],
+  "rules": {
+    "interface-name": [true, "never-prefix"],
+    "no-console": false,
+    "jsx-self-close": false,
+    "jsx-no-lambda": false,
+    "object-literal-sort-keys": false,
+    "member-access": false,
+    "ordered-imports": [
+      false,
+      {
+          "import-sources-order": "lowercase-last",
+          "named-imports-order": "lowercase-first"
+      }
+    ],
+    "no-implicit-dependencies": ["optional", ["src"]]
+  },
+  "linterOptions": {
+    "exclude": [
+      "config/**/*.js",
+      "node_modules/**/*.ts",
+      "coverage/lcov-report/*.js"
+    ]
+  }
 }

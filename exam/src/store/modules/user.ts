@@ -1,36 +1,57 @@
-import { observable, action } from 'mobx'
-import { login } from '../../service/index'
-import { LoginForm } from '../../types/index'
-import { setToken, removeToken } from '../../utils'
+import { observable, action } from 'mobx';
+import { getUserLogin, getUserInfoUser, getViewAuthority } from '../../service/index';
+import { setToken, removeToken } from '../../utils/index';
 
-// 获取本地用户信息
-let account = {}
+//获取本地存储的用户信息
+let account = {};
 
 if (window.localStorage.getItem('account')) {
-    account = JSON.parse(window.localStorage.getItem('account') + '')
+	account = JSON.parse(window.localStorage.getItem('account') + '');
+}
+
+interface LoginInfo {
+	user_name: string;
+	user_pwd: string;
+	remember: any,
+	autoLogin: any
 }
 
 class User {
-    @observable public isLogin: boolean = false
-    @observable public account: any = account
-    @action public async login(from: LoginForm): Promise<any> {
-        const result: any = await login(from)
-        console.log(result, '...result')
-        // 记住用户密码
-        if (from.remember) {
-            window.localStorage.setItem('account', JSON.stringify(from))
-        }
-        // 免7天登录
-        if (from.autoLogin) {
-            setToken(result.token)
-        }
-        return result
-    }
+	@observable isLogin: boolean = false;
+	@observable account: any = account;
+	@observable userInfo: any = {};
+	@observable viewAuthority: object[] = [];
 
-    // 退出登录
-    @action public async logout(): Promise<any> {
-        removeToken()
-    }
+	@action async login(form: LoginInfo): Promise<any> {
+		const result: any = await getUserLogin(form);
+		if (result.code === 1) {
+			//判断是否记住密码
+			if (form.remember) {
+				window.localStorage.setItem('account', JSON.stringify(form));
+			} else {
+				window.localStorage.removeItem('account');
+			}
+			if (form.autoLogin) {
+				setToken(result.token);
+			}
+		}
+		return result;
+	}
+	//退出登录
+	@action async loginout(): Promise<any> {
+		removeToken()
+	}
+	//获取用户信息
+	@action async getUserInfoUser(): Promise<any> {
+		let userInfo: any = await getUserInfoUser();
+		this.userInfo = userInfo.data;
+		this.getViewAuthority()
+	}
+	//获取用户权限
+	@action async getViewAuthority(): Promise<any> {
+		let viewAuthority: any = await getViewAuthority()
+		this.viewAuthority = viewAuthority.data
+	}
 }
 
-export default User
+export default User;

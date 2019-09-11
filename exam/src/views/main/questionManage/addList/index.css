@@ -1,0 +1,14 @@
+.antd-inp {
+    max-width: 500px;
+}
+
+.for-container {
+    font-family: 'Consolas', 'Source Sans Pro', 'Helvetica Neue', Arial, sans-serif;
+    display: flex;
+    flex-direction: column;
+    height: 400px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    background: #fff;
+    font-size: 14px;
+}

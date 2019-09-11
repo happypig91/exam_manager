@@ -1,0 +1,34 @@
+.adduser-title{
+    padding: 10px 20px;
+    font-size: 24px;
+}
+.questionList-top{
+    background: rgb(255, 255, 255);
+    padding: 24px;
+    margin: 0px 0px 20px;
+    border-radius: 10px;
+    display: flex;
+}
+.questionList-top-item{
+    margin-right: 50px;
+}
+
+.questionList-bottom{
+    background: rgb(255, 255, 255);
+    padding: 24px;
+    margin: 0px 0px 20px;
+    border-radius: 10px
+}
+.questionList-btn{
+    margin-bottom: 25px;
+    display: flex
+}
+.questionList-btns{
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    align-items: center;
+}
+.btn-actives{
+    color: #1890ff!important;
+}

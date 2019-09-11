@@ -1,117 +1,133 @@
-import * as React from 'react'
-import { Form, Icon, Input, Button, Checkbox, message } from 'antd'
-import { FormComponentProps } from 'antd/lib/form'
-import { inject, observer } from 'mobx-react'
-import './index.css'
+import { Form, Icon, Input, Button, Checkbox ,message} from 'antd';
+import { WrappedFormUtils } from 'antd/lib/form/Form';
+import * as React from 'react';
+import '../../asscpt/login/index.css';
+import { inject, observer } from 'mobx-react';
 
-interface UserFormProps extends FormComponentProps {
-    age: number
-    name: string
-    user: any
-    history: any
+/**
+ * 定义history的值的类型
+ */
+interface PropsInfo {
+	form: WrappedFormUtils;
+	history: any;
+	user: any;
 }
-
 @inject('user')
+// observer 函数/装饰器可以用来将 React 组件转变成响应式组件
 @observer
-class App extends React.Component<UserFormProps, any> {
-    public handleSubmit = (e: { preventDefault: () => void }) => {
-        e.preventDefault()
-        this.props.form.validateFields(async (err: any, values: any) => {
-            if (!err) {
-                const result = await this.props.user.login(values)
-                console.log(result, '....result')
-                if (result.code === 1) {
-                    console.log(this.props)
-
-                    message.success(result.msg, 1, () => {
-                        this.props.history.replace('/main')
-                    })
-                } else {
-                    message.error(result.msg || '用户名或密码有误', 1)
-                }
-            }
-        })
-    }
-    public render() {
-        // console.log(this.props, this.props.user.login, '.....props')
-        const { getFieldDecorator } = this.props.form
-        return (
-            <div className="wrapper">
-                <div className="login-wrapper">
-                    <Form
-                        style={{ width: 300, margin: '10px auto' }}
-                        onSubmit={this.handleSubmit}
-                        className="login-form">
-                        <Form.Item>
-                            {getFieldDecorator('user_name', {
-                                rules: [
-                                    {
-                                        message: 'Please input your user_name!',
-                                        required: true
-                                    }
-                                ]
-                            })(
-                                <Input
-                                    prefix={
-                                        <Icon
-                                            type="user"
-                                            style={{ color: 'rgba(0,0,0,.25)' }}
-                                        />
-                                    }
-                                    placeholder="User_name"
-                                />
-                            )}
-                        </Form.Item>
-                        <Form.Item>
-                            {getFieldDecorator('user_pwd', {
-                                rules: [
-                                    {
-                                        message: 'Please input your Password!',
-                                        required: true
-                                    }
-                                ]
-                            })(
-                                <Input
-                                    prefix={
-                                        <Icon
-                                            type="lock"
-                                            style={{ color: 'rgba(0,0,0,.25)' }}
-                                        />
-                                    }
-                                    type="password"
-                                    placeholder="user_pwd"
-                                />
-                            )}
-                        </Form.Item>
-                        <Form.Item>
-                            {getFieldDecorator('remember', {
-                                initialValue: true,
-                                valuePropName: 'checked'
-                            })(<Checkbox>记住密码</Checkbox>)}
-                            {getFieldDecorator('autoLogin', {
-                                initialValue: true,
-                                valuePropName: 'checked'
-                            })(<Checkbox>免七天登录</Checkbox>)}
-                            <a
-                                className="login-form-forgot"
-                                style={{ marginLeft: '10%' }}
-                                href="">
-                                忘记密码
-                            </a>
-                            <Button
-                                block={true}
-                                type="primary"
-                                htmlType="submit"
-                                className="login-form-button">
-                                登录
-                            </Button>
-                            Or <a href="">注册</a>
-                        </Form.Item>
-                    </Form>
-                </div>
-            </div>
-        )
-    }
+class Login extends React.Component<PropsInfo> {
+	handleSubmit = (e: React.FormEvent) => {
+		e.preventDefault();
+		this.props.form.validateFields(async (err, values) => {
+			if (!err) {
+                console.log(values)
+                const result = await this.props.user.login(values);
+                console.log(result)
+				if (result.code === 1) {
+					message.success(result.msg);
+					this.props.history.push('/home');
+				} else {
+					message.error(result.msg);
+				}
+			}
+		});
+	};
+	public render() {
+		const { getFieldDecorator } = this.props.form;
+		return (
+			<div className='login-page'>
+				<div className='login'>
+					<Form onSubmit={this.handleSubmit} className='login-form'>
+						<Form.Item>
+							{getFieldDecorator('user_name', {
+								validateTrigger: 'onBlur',
+								rules: [
+									{
+										validator: (ruler, value, callback) => {
+											console.log('value...', value);
+											if (/[a-z]{5,20}/.test(value)) {
+												callback();
+											} else {
+												callback(
+													'Please input valid username!'
+												);
+											}
+										}
+									}
+								]
+							})(
+								<Input
+									prefix={
+										<Icon
+											type='user'
+											style={{ color: 'rgba(0,0,0,.25)' }}
+										/>
+									}
+									placeholder='Username'
+								/>
+							)}
+						</Form.Item>
+						<Form.Item>
+							{getFieldDecorator('user_pwd', {
+								validateTrigger: 'onBlur',
+								rules: [
+									{
+										validator: (ruler, value, callback) => {
+											console.log('value...', value);
+											if (
+												/^(?![a-z]+$)(?![A-Z]+$)(?!([^(a-zA-Z\!\*\.\#)])+$)^.{8,16}$/.test(
+													value
+												)
+											) {
+												callback();
+											} else {
+												callback(
+													'Please input valid password!'
+												);
+											}
+										}
+									}
+								]
+							})(
+								<Input
+									prefix={
+										<Icon
+											type='lock'
+											style={{ color: 'rgba(0,0,0,.25)' }}
+										/>
+									}
+									type='password'
+									placeholder='Password'
+								/>
+							)}
+						</Form.Item>
+						<Form.Item>
+							{getFieldDecorator('remember', {
+								valuePropName: 'checked',
+								initialValue: true
+							})(<Checkbox>Remember me</Checkbox>)}
+						</Form.Item>
+						<Form.Item>
+							{getFieldDecorator('autoLogin', {
+								valuePropName: 'checked',
+								initialValue: true
+							})(<Checkbox>Auto login in 7 days</Checkbox>)}
+							<a className='login-form-forgot' href=''>
+								Forgot password
+							</a>
+							<Button
+								type='primary'
+								htmlType='submit'
+								className='login-form-button'>
+								Log in
+							</Button>
+							Or <a href=''>register now!</a>
+						</Form.Item>
+					</Form>
+				</div>
+			</div>
+		);
+	}
 }
 
-export default Form.create()(App)
+export default Form.create()(Login);

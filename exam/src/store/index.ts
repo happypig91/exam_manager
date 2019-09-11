@@ -1,16 +1,22 @@
 import User from './modules/user'
-import Search from './modules/search'
-import Type from './modules/type'
-import Examtype from './modules/examtype'
+import Question from './modules/question'
+import UserShow from './modules/usershow'
+import ClassManger from './modules/classmanger'
+import ExamManger from './modules/examManger'
+import Global from './modules/global'
 
+const classmanger = new ClassManger()
 const user = new User()
-const search = new Search()
-const type = new Type()
-const examtype = new Examtype()
+const question = new Question()
+const userShow = new UserShow()
+const examManger = new ExamManger()
+const global = new Global()
 
 export default {
-    examtype,
-    search,
-    type,
-    user
+    classmanger,
+    user,
+    question,
+    userShow,
+    examManger,
+    global
 }

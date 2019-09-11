@@ -1,0 +1,210 @@
+.ant-top {
+    background: rgb(255, 255, 255);
+    padding: 24px;
+    margin: 0px 0px 20px;
+    border-radius: 10px;
+}
+
+.row {
+    position: relative;
+    margin-left: 0;
+    margin-right: 0;
+    height: auto;
+    zoom: 1;
+    display: block;
+    display: flex;
+    box-sizing: border-box;
+}
+
+.row1 {
+    display: block;
+    box-sizing: border-box;
+    width: 8.33333333%;
+    text-align: center;
+    line-height: 40px;
+}
+
+.row2 {
+    display: block;
+    box-sizing: border-box;
+    width: 91.66666667%;
+}
+
+.row2 .control {
+    line-height: 39.9999px;
+    position: relative;
+    zoom: 1;
+}
+
+.row2 .control .child {
+    position: relative;
+}
+
+.row2 .control .child .tag {
+    font-size: 14px;
+    font-variant: tabular-nums;
+    line-height: 1.5;
+    color: rgba(0, 0, 0, 0.65);
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    display: inline-block;
+    line-height: 20px;
+    height: 22px;
+    padding: 0 7px;
+    border-radius: 2px;
+    border: 1px solid #d9d9d9;
+    background: #fafafa;
+    font-size: 12px;
+    transition: all 0.3s cubic-bezier(0.215, 0.61, 0.355, 1);
+    opacity: 1;
+    margin-right: 8px;
+    cursor: pointer;
+    white-space: nowrap;
+}
+
+.row2 .control .child .ant-tag-checkable {
+    background-color: transparent;
+    border-color: transparent;
+}
+
+.row2 .control .child .ant-tag-checkable-checked {
+    background-color: #0139fd;
+}
+
+.antd-list-item .antd-list-item-l .antd-list-item-l-b .ant-tag-blue {
+    color: #1890ff;
+    background: #e6f7ff;
+    border-color: #91d5ff;
+    font-size: 14px;
+}
+
+.antd-list-item .antd-list-item-l .antd-list-item-l-b .ant-tag-geekblue {
+    color: #2f54eb;
+    background: #f0f5ff;
+    border-color: #adc6ff;
+    font-size: 14px;
+}
+
+.antd-list-item .antd-list-item-l .antd-list-item-l-b .ant-tag-orange {
+    color: #fa8c16;
+    background: #fff7e6;
+    border-color: #ffd591;
+    font-size: 14px;
+}
+
+.antd-list-item .antd-list-item-l .antd-list-item-l-b span {
+    color: #0139fd;
+}
+
+.antd-list-item .antd-list-item-l .antd-list-item-l-t {
+    color: rgba(0, 0, 0, 0.65);
+    margin-bottom: 4px;
+    font-size: 14px;
+    line-height: 22px;
+}
+
+.antd-list-item-r {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.antd-list-item {
+    display: flex;
+    margin-bottom: 15px;
+    padding: 12px 0;
+    border-bottom: 1px solid #e8e8e8;
+}
+
+.antd-list-item .antd-list-item-l .antd-list-item-l-b .ant-tag {
+    font-size: 14px;
+    font-variant: tabular-nums;
+    line-height: 1.5;
+    color: rgba(0, 0, 0, 0.65);
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    display: inline-block;
+    line-height: 30px;
+    height: 25px;
+    padding: 0 10px;
+    border-radius: 2px;
+    border: 1px solid #d9d9d9;
+    background: #fafafa;
+    font-size: 14px;
+    transition: all 0.3s cubic-bezier(0.215, 0.61, 0.355, 1);
+    opacity: 1;
+    margin-right: 8px !important;
+    cursor: pointer;
+    white-space: nowrap;
+}
+.ant-tag-blue {
+    color: #1890ff;
+    background: #e6f7ff;
+    border-color: #91d5ff;
+    font-size: 14px;
+}
+
+.ant-tag-geekblue {
+    color: #2f54eb;
+    background: #f0f5ff;
+    border-color: #adc6ff;
+    font-size: 14px;
+}
+
+.ant-tag-orange {
+    color: #fa8c16;
+    background: #fff7e6;
+    border-color: #ffd591;
+    font-size: 14px;
+}
+
+.antd-list-item .antd-list-item-l .antd-list-item-l-b div {
+    display: flex;
+    margin: 5px 0;
+}
+
+.item-con {
+    display: inline-block;
+}
+
+.top-list span {
+    line-height: 20px;
+    height: 22px;
+    display: inline-block;
+    padding: 0 7px;
+    font-size: 12px;
+}
+
+.topList-b {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: 20px 0 0 0;
+}
+
+.top-list {
+    background-color: #fff;
+    padding: 24px;
+}
+
+.ant-list {
+    background: rgb(255, 255, 255);
+    padding: 24px;
+    margin: 0px 0px 20px;
+    border-radius: 10px;
+}
+
+.antd-list-item-l {
+    flex: 9;
+    align-items: flex-start;
+    padding: 10px 40px;
+}
+
+.antd-list-item-l-b {
+    margin-bottom: 10px;
+}

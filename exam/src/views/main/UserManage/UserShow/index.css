@@ -1,0 +1,23 @@
+.title{
+    padding: 10px 0px;
+    font-size: 24px;
+}
+.user-btn ul li{
+    height: 32px;
+    border:1px solid #ccc;
+    background-color: #fff;
+    float: left;
+    line-height: 32px;
+    text-align: center;
+    padding: 0 15px;
+}
+.user-btn{
+    width: 100%;
+    height: 32px;
+}
+.btnactive{
+    background: #fff;
+    border:1px solid#0139FD;
+    color: #0139FD;
+    z-index: 1;
+}

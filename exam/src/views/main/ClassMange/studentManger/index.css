@@ -1,0 +1,23 @@
+.adduser-title {
+	padding: 10px 20px;
+	font-size: 24px;
+}
+
+.student-bottom {
+	background-color: #fff;
+}
+
+.student-top {
+	display: flex;
+}
+.student-top-item{
+  margin-right: 20px;
+}
+.student-btn {
+	padding: 0 40px !important;
+	border-radius: 4px !important;
+	border: 0 !important;
+	font-size: 14px !important;
+	color: #fff !important;
+	background: linear-gradient(-90deg, #4e75ff, #0139fd) !important;
+}
